@@ -1,0 +1,64 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet author="humga" id="002">
+        <insert tableName="customers">
+            <column name="name" value="Иван"/>
+            <column name="surname" value="Иванов"/>
+            <column name="age" value="37"/>
+            <column name="phone_number" value="74950000001"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="name" value="alexey"/>
+            <column name="surname" value="alexeev"/>
+            <column name="age" value="38"/>
+            <column name="phone_number" value="null"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="name" value="ALEXEY"/>
+            <column name="surname" value="PETROV"/>
+            <column name="age" value="22"/>
+            <column name="phone_number" value="74950000008"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="name" value="Петр"/>
+            <column name="surname" value="Петров"/>
+            <column name="age" value="39"/>
+            <column name="phone_number" value="74950000002"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="name" value="Петр"/>
+            <column name="surname" value="Петров"/>
+            <column name="age" value="39"/>
+            <column name="phone_number" value="74950000002"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="date" value="08/21/2021"/>
+            <column name="customer_id" value="1"/>
+            <column name="product_name" value="Product one"/>
+            <column name="amount" value="5"/>
+        </insert>
+        <insert tableName="orders">
+            <column name="date" value="08/27/2021"/>
+            <column name="customer_id" value="2"/>
+            <column name="product_name" value="Product two"/>
+            <column name="amount" value="2"/>
+        </insert>
+        <insert tableName="orders">
+            <column name="date" value="10/07/2020"/>
+            <column name="customer_id" value="3"/>
+            <column name="product_name" value="Product two"/>
+            <column name="amount" value="10"/>
+        </insert>
+        <insert tableName="orders">
+            <column name="date" value="10/07/2019"/>
+            <column name="customer_id" value="4"/>
+            <column name="product_name" value="Product three"/>
+            <column name="amount" value="4"/>
+        </insert>
+   </changeSet>
+</databaseChangeLog>

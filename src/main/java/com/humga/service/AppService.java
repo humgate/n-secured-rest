@@ -1,5 +1,6 @@
 package com.humga.service;
 
+import com.humga.entity.Customer;
 import com.humga.repository.AppRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,5 +13,9 @@ public class AppService {
 
     public List<String> getProduct(String name) {
         return repository.getProduct(name);
+    }
+
+    public List<Customer> getAllCustomers() {
+        return repository.getAllCustomers();
     }
 }

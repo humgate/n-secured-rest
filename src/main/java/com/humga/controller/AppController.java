@@ -1,5 +1,6 @@
 package com.humga.controller;
 
+import com.humga.entity.Customer;
 import com.humga.service.AppService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,4 +17,9 @@ public class AppController {
     public List<String> getProduct(@RequestParam String name) {
         return service.getProduct(name);
     }
+
+    @GetMapping("/customers")
+    public List<Customer> getAllCustomers() {  return service.getAllCustomers(); }
+
+
 }

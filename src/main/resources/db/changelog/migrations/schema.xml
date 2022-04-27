@@ -1,0 +1,67 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet author="humga" id="001">
+        <createTable tableName="customers">
+            <column name="id" type="serial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="orders">
+        <column name="id" type="serial">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="date" type="date"/>
+        <column name="customer_id" type="integer">
+            <constraints nullable="false" foreignKeyName="fk_customer_id" references="customers(id)"/>
+        </column>
+        <column name="product_name" type="varchar(255)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="amount" type="integer">
+            <constraints nullable="false"/>
+        </column>
+        </createTable>
+
+        <createTable tableName="users">
+            <column name="id" type="serial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="boolean" defaultValue="true">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="authorities">
+            <column name="id" type="serial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="integer">
+                <constraints nullable="false" foreignKeyName="fk_user_id" references="users(id)"/>
+            </column>
+            <column name="authority" type="varchar(64)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
+
+

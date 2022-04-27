@@ -1,0 +1,1 @@
+select distinct o.productName from Order o join Customer c on c.id = o.customer.id where lower(c.name)=lower(:name)
