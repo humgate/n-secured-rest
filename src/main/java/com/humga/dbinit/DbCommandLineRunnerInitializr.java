@@ -33,11 +33,17 @@ public class DbCommandLineRunnerInitializr implements CommandLineRunner {
         if (userRepo.findAll().isEmpty()) {
             User user= new User("alex", encoder.encode("passAlex"),true);
             userRepo.save(user);
-            Authority authority = new Authority(user, "/customers");
-            authRepo.save(authority);
+            authRepo.save(new Authority(user, "ROLE_READ"));
+            authRepo.save(new Authority(user, "ROLE_WRITE"));
 
             user= new User("fedor", encoder.encode("passFedor"),true);
             userRepo.save(user);
+            authRepo.save(new Authority(user, "ROLE_READ"));
+
+            user= new User("Иван", encoder.encode("пассИван"),true);
+            userRepo.save(user);
+            authRepo.save(new Authority(user, "ROLE_ADMIN"));
+            authRepo.save(new Authority(user, "ROLE_READ"));
         }
     }
 }
